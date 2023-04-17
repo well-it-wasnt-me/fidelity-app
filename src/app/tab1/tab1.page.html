@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-padding-start">
+      <ion-avatar class="logo">
+        <img src="assets/img/logo.png" />
+      </ion-avatar>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToNotification()">
+        <ion-icon slot="start" name="notifications-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{"APP_NAME" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="{{'PULL_REFRESH' | translate}}"
+      refreshingSpinner="circles"
+      refreshingText="{{'REFRESHING_TEXT' | translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="main-content">
+    <div *ngIf="logged === false">
+      {{"LBL_STILL_NO_ACCOUNT" | translate}}
+      <ion-button class="sub_btn" color="primary" expand="block" (click)="goToRegister()">
+        {{"BTN_REGISTER" | translate}}
+      </ion-button>
+      <hr>
+      {{"LBL_HAVE_ACCOUNT" | translate}}
+      <ion-button class="sub_btn" color="primary" expand="block" (click)="goToLogin()">
+        {{"BTN_SIGN_IN" | translate}}
+      </ion-button>
+    </div>
+    <div *ngIf="logged === true">
+      <div class="head_div">
+        <ion-label class="head_lbl">{{"HELLO" | translate}} {{myData.f_name}} !</ion-label>
+        <ion-label class="small_lbl">{{"HOW_ARE_YOU" | translate}}</ion-label>
+      </div>
+      <div class="balance_card" >
+        <div class="upper_div">
+          <div class="title_left">
+            <ion-label class="text">{{"LBL_GOT_POINTS" | translate}}</ion-label>
+            <ion-label class="title">{{MyPoints}}</ion-label>
+          </div>
+          <div class="card_logo_img" [style.backgroundImage]="'url(assets/images/vitruviano.jpeg)'"></div>
+        </div>
+        <div class="lower_div">
+          <div class="title_left">
+            <ion-label class="text">{{"LBL_MY_ID" | translate}}</ion-label>
+            <ion-label class="title">{{MyID}}</ion-label>
+          </div>
+          <ion-icon color="light" name="cash-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="badge">
+        <ion-row>
+          <ion-col size="4" (click)="goToHistory()">
+            <ion-icon name="receipt-outline" color="primary"></ion-icon>
+            <ion-label>{{"LBL_HISTORY" | translate}}</ion-label>
+          </ion-col>
+          <ion-col size="4" (click)="goToPrizes()">
+            <ion-icon name="cash-outline" color="primary"></ion-icon>
+            <ion-label>{{"LBL_RETRIEVE" | translate}}</ion-label>
+          </ion-col>
+          <ion-col size="4" (click)="readQRCode()">
+            <ion-icon name="qr-code-outline" color="primary"></ion-icon>
+            <ion-label>{{"LBL_QR" | translate}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="title_div">
+        <ion-label class="title">{{"LBL_TRANSACTION_LIST" | translate}}</ion-label>
+        &nbsp;
+        <ion-label (click)="goToTransactionList()" class="btn">{{"LBL_SEE_ALL" | translate}}</ion-label>
+      </div>
+
+      <div class="recent_card">
+      <div class="col_div" *ngIf="last_transactions.length === 0">
+        <div class="item_card">
+          <div class="icon">
+            <div class="cate_img"> <img src="/assets/img/logo.png"></div>
+          </div>
+          <div class="details">
+            <div class="flex_row">
+              <div class="col">
+                <ion-label class="title">{{"LBL_STILL_NOTHING" | translate}}</ion-label>
+                <ion-label class="text"></ion-label>
+              </div>
+              <div class="end_div">
+                <ion-label class="price"></ion-label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col_div" *ngFor="let item of last_transactions">
+          <div class="item_card" (click)="goToDetail(item.rec_id)">
+            <div class="icon">
+              <div class="cate_img"> <img src="assets/img/logo.png"></div>
+            </div>
+            <div class="details">
+              <div class="flex_row">
+                <div class="col">
+                  <ion-label class="title">{{"TRX_NUM" | translate}} {{item.rec_id}}</ion-label>
+                  <ion-label class="text">{{"TRX_DATE" | translate}} {{item.recipt_date | date: 'dd/MM/yyyy H:mm:ss'}}</ion-label>
+                </div>
+                <div class="end_div">
+                  <ion-label class="price">{{item.recipt_amount / 100}} {{"LBL_CURRENCY" | translate}}</ion-label>
+                  <ion-icon name="chevron-forward-outline" color="primary"></ion-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</ion-content>

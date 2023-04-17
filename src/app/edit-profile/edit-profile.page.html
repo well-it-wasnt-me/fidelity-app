@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"TITLE_EDIT_PROFILE" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="image">
+    <div class="bg_image profile_image">
+      <img src="{{profile_pic}}" style="border-radius: 10px"/>
+    </div>
+  </div>
+
+  <div class="name">
+    <ion-icon name="person" color="primary" class="color_icon"></ion-icon>
+    <ion-input type="text" [(ngModel)]="updateData.f_name" value="{{my_data.f_name}}"></ion-input>
+  </div>
+
+  <div class="name">
+    <ion-icon name="person" color="primary" class="color_icon"></ion-icon>
+    <ion-input type="text" [(ngModel)]="updateData.l_name" value="{{my_data.l_name}}"></ion-input>
+  </div>
+
+  <div class="name">
+    <ion-icon name="call" color="primary" class="color_icon"></ion-icon>
+    <ion-input type="number" [(ngModel)]="updateData.phone_number" value="{{my_data.phone_number}}" placeholder="Phone Number"></ion-input>
+  </div>
+
+  <div class="name">
+    <ion-icon name="location" color="primary" class="color_icon"></ion-icon>
+    <ion-input type="text" [(ngModel)]="updateData.full_addr" value="{{my_data.full_addr}}" placeholder="Full Address"></ion-input>
+  </div>
+
+  <div class="name">
+    <ion-icon name="lock-closed" color="primary" class="color_icon"></ion-icon>
+    <ion-input [(ngModel)]="updateData.password" type="password" placeholder="*********"></ion-input>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="updateProfile()" size="full">{{"BTN_SAVE_CHANGES" | translate}}</ion-button>
+  </ion-toolbar>
+</ion-footer>

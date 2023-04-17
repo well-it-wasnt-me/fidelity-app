@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{"MNU_SETTINGS" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-content">
+
+    <div class="profile">
+      <div class="profile-item">
+        <div class="profile-picture">
+          <div>
+            <img src="{{profile_pic}}" style="border-radius: 30px"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="item_div" >
+      <ion-icon (click)="goToProfile()" name="person-outline"></ion-icon>
+      <ion-label (click)="goToProfile()">{{"LBL_ACCOUNT" | translate}}</ion-label>
+      <ion-icon (click)="goToProfile()" name="chevron-forward-outline"></ion-icon>
+    </div>
+    <div class="item_div">
+      <ion-icon (click)="changeLanguage()" name="language-outline"></ion-icon>
+      <ion-label (click)="changeLanguage()">{{"LBL_LANG" | translate}}</ion-label>
+      <ion-icon (click)="changeLanguage()" name="chevron-forward-outline"></ion-icon>
+    </div>
+    <div class="item_div" >
+      <ion-icon (click)="notifications()" name="notifications-outline"></ion-icon>
+      <ion-label (click)="notifications()">{{"LBL_NOTIF" | translate}}</ion-label>
+      <ion-icon (click)="notifications()" name="chevron-forward-outline"></ion-icon>
+    </div>
+    <div class="item_div" >
+      <ion-icon (click)="shareApp()" name="share-social-outline"></ion-icon>
+      <ion-label (click)="shareApp()">{{"LBL_INVITE" | translate}}</ion-label>
+      <ion-icon (click)="shareApp()" name="chevron-forward-outline"></ion-icon>
+    </div>
+    <div class="item_div" *ngIf="logged">
+      <ion-icon (click)="logout()" name="log-out-outline"></ion-icon>
+      <ion-label (click)="logout()" >{{"LBL_LOGOUT" | translate}}</ion-label>
+      <ion-icon (click)="logout()" name="chevron-forward-outline"></ion-icon>
+    </div>
+    <div class="item_div" *ngIf="!logged" (click)="goToLogin()">
+      <ion-icon (click)="login()" name="log-out-outline"></ion-icon>
+      <ion-label (click)="login()">{{"LBL_LOGIN" | translate}}</ion-label>
+      <ion-icon (click)="login()" name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{"LBL_PAYMENT_STATUS" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="center" *ngIf="showOk">
+    <div class="bg_image check_img" [style.backgroundImage]="'url(assets/images/green.png)'"></div>
+    <ion-label class="color">{{"LBL_CONGRATS" | translate}}</ion-label>
+    <ion-label class="gray">{{"LBL_PAYMENT_OK" | translate}}</ion-label>
+    <ion-button (click)="backHome()" >{{"BTN_BACK_HOME" | translate}}</ion-button>
+  </div>
+  <div class="center" *ngIf="showErr">
+    <div class="bg_image check_img" [style.backgroundImage]="'url(assets/images/non.png)'"></div>
+    <ion-label class="color">{{"LBL_ERR" | translate}}</ion-label>
+    <ion-label class="gray">{{"LBL_PAYMENT_KO" | translate}}</ion-label>
+    <ion-button (click)="backHome()">{{"BTN_BACK_HOME" | translate}}</ion-button>
+  </div>
+</ion-content>

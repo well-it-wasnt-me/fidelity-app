@@ -1,0 +1,86 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+
+@font-face {
+  font-family: "regular";
+  src: url(assets/fonts/Lexend-Regular.ttf);
+}
+
+@font-face {
+  font-family: "medium";
+  src: url(assets/fonts/Lexend-Medium.ttf);
+}
+
+@font-face {
+  font-family: "bold";
+  src: url(assets/fonts/Lexend-SemiBold.ttf);
+}
+
+
+* {
+  font-family: "regular";
+}
+
+
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0px;
+  --background: white;
+}
+
+.header-md:after {
+  background: none;
+}
+
+ion-footer {
+  padding: 24px;
+
+  .footer {
+    ion-button {
+      color: white;
+    }
+  }
+}
+
+
+.title_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .title {
+    font-size: 16px;
+    font-family: 'bold';
+  }
+
+  .btn {
+    font-size: 14px;
+    color: var(--ion-color-primary);
+    font-family: 'bold';
+  }
+}

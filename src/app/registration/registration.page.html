@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"TITLE_REGISTER" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="main_content_div">
+    <div class="head_div">
+      <ion-label>{{"LBL_WELCOME"|translate}}</ion-label>
+      <ion-label class="small_lbl">{{"LBL_SUB_WELCOME" | translate}}</ion-label>
+      <div id="registration_result">
+        <div *ngIf="register_error === true">
+          {{"LBL_SORRY_REG_ERROR" | translate}}
+        </div>
+        <div *ngIf="register_success === true">
+          {{"LBL_REG_OK" | translate}}
+        </div>
+      </div>
+    </div>
+
+    <ion-item class="input ion-no-padding">
+      <ion-label position="floating" color="medium">{{"LBL_FNAME" | translate}}</ion-label>
+      <ion-input  [(ngModel)]="registerData.fname" required type="text"></ion-input>
+    </ion-item>
+    <ion-item class="input ion-no-padding">
+      <ion-label position="floating" color="medium">{{"LBL_LNAME" | translate}}</ion-label>
+      <ion-input [(ngModel)]="registerData.lname" required type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="input ion-no-padding">
+      <ion-label position="floating" color="medium">{{"LBL_EMAIL" | translate}}</ion-label>
+      <ion-input [(ngModel)]="registerData.email" required type="email"></ion-input>
+    </ion-item>
+
+    <ion-item class="input ion-no-padding">
+      <ion-label position="floating" color="medium">{{"LBL_PASS" | translate}}</ion-label>
+      <ion-input [(ngModel)]="registerData.password" required type="password"></ion-input>
+    </ion-item>
+
+
+    <ion-button class="sub_btn" color="primary" expand="block" (click)="doRegistration()">
+      {{"BTN_REGISTER" | translate}}
+    </ion-button>
+  </div>
+</ion-content>

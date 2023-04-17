@@ -1,0 +1,25 @@
+.main-content {
+  padding: 16px;
+
+  .title_div {
+    margin-top: 30px;
+    margin-bottom: 16px;
+  }
+
+  .line_div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+
+    .title {
+      color: var(--ion-color-medium);
+      font-size: 14px;
+    }
+
+    .text {
+      font-family: 'bold';
+      font-size: 14px;
+    }
+  }
+}

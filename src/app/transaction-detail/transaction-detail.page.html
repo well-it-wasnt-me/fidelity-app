@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"TRX_DETAIL" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-content" *ngFor="let item of receipt_detail">
+
+    <div class="title_div">
+      <ion-label class="title">{{item.recipt_date | date: 'dd/MM/yyyy H:mm:ss'}}</ion-label>
+    </div>
+
+    <div class="line_div">
+      <ion-label class="title">{{"LBL_PRODUCT" | translate}}</ion-label>
+      <ion-label class="text">{{item.prod_name}}</ion-label>
+    </div>
+
+    <div class="line_div">
+      <ion-label class="title">{{"LBL_QT" | translate}}</ion-label>
+      <ion-label class="text">{{item.quantity}}</ion-label>
+    </div>
+    <div class="line_div">
+      <ion-label class="title">{{"LBL_TOT_BILL" | translate}}</ion-label>
+      <ion-label class="text">{{item.recipt_amount / 100}} {{"LBL_CURRENCY" | translate}}</ion-label>
+    </div>
+
+   <div class="title_div">
+      <ion-label class="title">{{"LBL_ADDITIONAL_INFO" | translate}}</ion-label>
+    </div>
+
+    <div class="line_div">
+      <ion-label class="title">{{"LBL_TRX_ID" | translate}}</ion-label>
+      <ion-label class="text">{{item.rec_id}}</ion-label>
+    </div>
+    <div class="line_div">
+      <ion-label class="title">{{"LBL_TRX_STATUS" | translate}}</ion-label>
+      <ion-label class="text">{{item.recipt_status}}</ion-label>
+    </div>
+  </div>
+
+</ion-content>

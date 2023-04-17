@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-padding-start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{"TITLE_PRODUCT_DETAIL" | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="image_div">
+      <img src="{{product.prod_picture}}"/>
+    </div>
+
+    <div class="content_div"><br>
+      <div class="flex_div">
+        <div>
+          <ion-label class="name_lbl">{{product.prod_name}}</ion-label>
+        </div>
+        <div>
+          <ion-label class="price_lbl">{{"LBL_CURRENCY" | translate}} {{product.prod_price / 100}}</ion-label>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content_div">
+      <ion-label class="title_lbl">{{"LBL_PROD_DETAIL" | translate}}</ion-label><br>
+      <ion-label class="detail_lbl">{{product.prod_descr}}</ion-label>
+    </div>
+
+    <div class="divider"></div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="footer_div">
+    <ion-button expand="block" class="block_btn" mode="ios" (click)="addToCart(product)">
+      {{"LBL_ADD_TO_CART" | translate}}
+    </ion-button>
+  </div>
+</ion-footer>

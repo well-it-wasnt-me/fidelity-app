@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{"TITLE_TAB_3" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <div class="content_div">
+      <div *ngIf="products.length === 0">
+        <span class="small_label">{{"EMPTY_CART" | translate}}</span>
+      </div>
+      <div class="pro_div" *ngFor="let item of (products| slice: 0:3)">
+        <div class="pro_flex">
+          <div class="pro_image" [style.backgroundImage]="'url('+item.prod_picture+')'">
+          </div>
+          <div style="margin-left: 12px;">
+            <ion-label class="name_lbl">{{item.prod_name}}</ion-label>&nbsp;
+            <ion-label class="price_lbl">{{"LBL_CURRENCY" | translate}} {{item.prod_price / 100}} </ion-label>
+          </div>
+        </div>
+        <div class="cart_box">
+          <div>
+            <ion-icon (click)="updateQuantity('minus', item)" name="remove-sharp" ></ion-icon>
+          </div>
+          <ion-label>{{item.qt ?? 1}}</ion-label>
+          <div>
+            <ion-icon (click)="updateQuantity('plus', item)" name="add-sharp"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="footer_div">
+    <div class="payment_div">
+      <div style="margin-right: 20px;">
+        <ion-label class="simple_lbl">{{"LBL_TOTAL_PAY" | translate}}</ion-label>&nbsp;
+        <ion-label class="price_lbl">{{"LBL_CURRENCY" | translate}} {{this.cm.subtotal}} </ion-label>
+      </div>
+      <ion-button color="primary" expand="block" (click)="goToOrderBook()">
+        {{"BTN_PAY"| translate}}
+      </ion-button>
+    </div>
+
+  </div>
+</ion-footer>

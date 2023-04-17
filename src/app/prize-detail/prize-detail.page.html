@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-padding-start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{"TITLE_PRIZE_DETAIL" | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="image_div">
+      <img src="{{prize.prize_picture}}"/>
+    </div>
+
+    <div class="content_div">
+      <div class="flex_div">
+        <div>
+          <ion-label class="name_lbl">{{prize.prize_name}}</ion-label>
+        </div>
+        <div>
+          <ion-label class="price_lbl">{{"LBL_POINTS" | translate}} {{prize.prize_points}}</ion-label>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content_div">
+      <ion-label class="title_lbl">{{"LBL_PRIZE_DETAIL" | translate}}</ion-label><br>
+      <ion-label class="detail_lbl">{{prize.prize_descr}}</ion-label>
+    </div>
+
+    <div class="divider"></div>
+  </div>
+</ion-content>
+
+<ion-footer>
+
+    <ion-button (click)="claim(prize.p_prod_id)" id="open-action-sheet" expand="full">
+      {{"LBL_COLLECT" | translate}}
+    </ion-button>
+</ion-footer>

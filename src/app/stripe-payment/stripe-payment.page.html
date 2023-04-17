@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"LBL_PAYMENT" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>{{"LBL_TOT_PAY" | translate}}</h1>
+  <h2>{{"LBL_CURRENCY" | translate}} {{subtotal}}</h2>
+  <ion-button expand="block" class="ion-margin-top" (click)="paymentSheet()">{{"LBL_PAY_STRIPE" | translate}}</ion-button>
+  <ion-button expand="block" class="ion-margin-top" *ngIf="showApplePay" (click)="applePay()">Apple Pay</ion-button>
+  <ion-button expand="block" class="ion-margin-top" *ngIf="showGooglePay" (click)="googlePay()">Google Pay</ion-button>
+</ion-content>

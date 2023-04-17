@@ -1,0 +1,7 @@
+{
+  "name": "fidelity-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

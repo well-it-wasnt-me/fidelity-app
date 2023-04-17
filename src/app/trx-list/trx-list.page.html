@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"LBL_TRX_LIST" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-content">
+  <div class="recent_card">
+    <div class="col_div" *ngIf="last_transactions.length === 0">
+      <div class="item_card">
+        <div class="icon">
+          <div class="cate_img"> <img src="/assets/img/logo.png"></div>
+        </div>
+        <div class="details">
+          <div class="flex_row">
+            <div class="col">
+              <ion-label class="title">{{"LBL_STILL_NOTHING" | translate}}</ion-label>
+              <ion-label class="text"></ion-label>
+            </div>
+            <div class="end_div">
+              <ion-label class="price"></ion-label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col_div" *ngFor="let item of last_transactions">
+      <div class="item_card" (click)="goToDetail(item.rec_id)">
+        <div class="icon">
+          <div class="cate_img"> <img src="assets/img/logo.png"></div>
+        </div>
+        <div class="details">
+          <div class="flex_row">
+            <div class="col">
+              <ion-label class="title">{{"TRX_NUM" | translate}} {{item.rec_id}}</ion-label>
+              <ion-label class="text">{{"TRX_DATE" | translate}} {{item.recipt_date | date: 'dd/MM/yyyy H:mm:ss'}}</ion-label>
+            </div>
+            <div class="end_div">
+              <ion-label class="price">{{item.recipt_amount / 100}} {{"LBL_CURRENCY" | translate}}</ion-label>
+              <ion-icon name="chevron-forward-outline" color="primary"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</ion-content>

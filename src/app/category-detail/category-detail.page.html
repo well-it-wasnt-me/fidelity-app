@@ -1,0 +1,41 @@
+<ion-header mode="ios" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"LBL_CAT_DETAIL" | translate}}</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar (ionChange)="handleSearch($event)" placeholder="{{'LBL_SEARCH' | translate}}"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <div *ngIf="products.length === 0">
+      <h1>{{"STILL_NO_PRODUCTS" | translate}}</h1>
+    </div>
+    <ion-row *ngIf="products.length > 0">
+      <ion-col size="6" [class.left]="i%2===1" [class.right]="i%2===0" *ngFor="let item of products;let i = index">
+        <div class="product_box" >
+          <div class="image_box" (click)="goToDetail(item.prod_id)" [style.backgroundImage]="'url('+item.prod_picture+')'">
+          </div>
+          <div class="detail_div" >
+            <!--<div class="like_box">
+              <ion-icon name="heart"></ion-icon>
+            </div>-->
+            <ion-label (click)="goToDetail(item.prod_id)" class="name_lbl">{{item.prod_name}}</ion-label>
+            <div class="price_flex">
+              <div>
+                <!--<ion-label class="old_price">$3.0</ion-label>-->
+                <ion-label class="price_lbl">{{"LBL_CURRENCY" | translate}} {{item.prod_price / 100}}</ion-label>
+                <hr>
+                <ion-button shape="round" size="small" (click)="addToCart(item)" class=""><ion-icon name="add-circle-outline"></ion-icon> {{"LBL_ADD_TO_CART" | translate}}</ion-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,133 @@
+.main_content_div {
+  .image_div {
+    width: 100%;
+    height: 300px;
+    background: var(--ion-color-app-lightgreen);
+
+    .action_div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      padding-top: 40px;
+
+      .back_arrow {
+        font-size: 24px;
+      }
+
+      .like_box {
+        height: 30px;
+        width: 30px;
+        min-width: 30px;
+        background: white;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ion-icon {
+          font-size: 20px;
+          color: var(--ion-color-app-orange);
+        }
+      }
+    }
+  }
+
+  .content_div {
+    background: white;
+    padding: 16px;
+
+    .save_lbl {
+      background: var(--ion-color-app-orange);
+      width: fit-content;
+      color: white;
+      font-family: 'medium';
+      border-radius: 3px;
+      font-size: 14px;
+      white-space: nowrap;
+      padding: 5px 12px;
+      margin-bottom: 10px;
+    }
+
+    .flex_div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .name_lbl {
+        font-family: 'medium';
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      .grey_lbl {
+        color: grey;
+      }
+
+      .old_price {
+        color: grey;
+        text-decoration: line-through;
+        margin-bottom: 8px;
+      }
+
+      .price_lbl {
+        font-size: 18px;
+        color: var(--ion-color-app-green);
+        font-family: 'medium';
+
+        span {
+          color: black;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .title_lbl {
+      font-size: 20px;
+      font-family: 'medium';
+      margin-bottom: 16px;
+    }
+
+    .detail_lbl {
+      color: grey;
+      line-height: 22px;
+    }
+
+    .product_slider {
+      display: flex;
+      width: 100%;
+      overflow: scroll;
+
+      .product_box {
+        margin-right: 20px;
+        min-width: 190px;
+
+        .image_box {
+          height: 170px;
+        }
+      }
+    }
+  }
+
+  .divider {
+    width: 100%;
+    height: 10px;
+    background: var(--ion-color-app-grey);
+  }
+}
+
+.footer_div {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+
+  .cart_btn {
+    height: 50px;
+    --border-radius: 8px;
+    --background: var(--ion-color-app-lightgreen);
+    margin: 0px;
+    color: var(--ion-color-primary);
+    margin-right: 16px;
+  }
+
+}

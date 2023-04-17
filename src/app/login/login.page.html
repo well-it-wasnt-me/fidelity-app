@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"TITLE_LOGIN" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <div class="head_div">
+      <ion-label class="head_lbl">{{"LBL_WELCOME" | translate}}</ion-label>
+      <ion-label class="small_lbl">{{"LBL_CONTINUE_LOGIN" | translate}}</ion-label>
+    </div>
+
+    <ion-item class="input ion-no-padding">
+      <ion-label position="floating" color="medium">{{"LBL_EMAIL" | translate}}</ion-label>
+      <ion-input [(ngModel)]="myLogin.email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item class="input ion-no-padding">
+      <ion-label position="floating" color="medium">{{"LBL_PASS" | translate}}</ion-label>
+      <ion-input [(ngModel)]="myLogin.password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-button class="text_btn" color="primary" fill="clear" size="small" (click)="goToForgot()">
+      {{"LBL_FORGOT_PASS" | translate}}
+    </ion-button>
+
+    <ion-button color="primary" expand="block" (click)="doLogin()">
+       {{"BTN_SIGN_IN" | translate}}
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="footer">
+    <ion-label class="small_lbl">{{"NO_ACCOUNT" | translate}}</ion-label>
+    <ion-button class="text_btn" color="dark" fill="clear" size="small" (click)="goToRegister()">
+      {{"BTN_REGISTER" | translate}}
+    </ion-button>
+  </div>
+</ion-footer>
